@@ -7,8 +7,8 @@ app.use(cors());
 app.use(express.json());
 
 // Pointing to your forwarded localhost service ports
-const USER_SERVICE_URL = 'https://github.dev';
-const VIDEO_SERVICE_URL = 'https://github.dev';
+const USER_SERVICE_URL = 'http://user-service:3000';
+const VIDEO_SERVICE_URL = 'http://video-service:3001';
 
 app.get('/api/users', async (req, res) => {
   try {
