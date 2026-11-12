@@ -6,9 +6,11 @@ const app = express();
 app.use(cors());  
 app.use(express.json());
 
-// Pointing to your forwarded localhost service ports
-const USER_SERVICE_URL = 'http://user-service:3000';
-const VIDEO_SERVICE_URL = 'http://video-service:3001';
+// Pointing to forwarded localhost service ports
+const USER_SERVICE_URL =
+  process.env.USER_SERVICE_URL || 'http://localhost:3000';
+const VIDEO_SERVICE_URL =
+  process.env.VIDEO_SERVICE_URL || 'http://localhost:3001';
 
 app.get('/api/users', async (req, res) => {
   try {
